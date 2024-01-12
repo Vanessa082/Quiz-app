@@ -1,0 +1,119 @@
+@import url('https://fonts.googleapis.com/css2?family=Lato&');
+
+* {
+  box-sizing: border-box;
+  border: none;
+  text-decoration: none;
+}
+
+body {
+  font-family: 'Lato', sans-serif;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  overflow-x: hidden;
+  margin: 0;
+}
+
+.quiz-container {
+  justify-content: space-between;
+  background-color: #fff;
+  border-radius: 0.7rem;
+  box-shadow: 0 0 0.7rem 0.2rem #6464641a;
+  width: 600px;
+  height: 90vh;
+  overflow: hidden;
+  background-color: #86948F;
+  position: relative;
+  cursor: pointer;
+}
+
+.quiz {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 10px;
+  gap: 10px;
+}
+
+h1 {
+  color: #fff;
+  font-size: 3rem;
+  font-weight: 300;
+}
+
+h4{
+  background-color: #B8E893;
+  border-radius: 0.7rem;
+  box-shadow: 0 0 0.7rem 0.2rem #6464641a;
+  text-align: center;
+}
+
+img {
+  border-radius: 0.7rem;
+  box-shadow: 0 0 0.7rem 0.2rem #6464641a;
+  margin-bottom: 2rem;
+}
+
+.btn {
+  background-color: #B8E893;
+  margin: 0 auto;
+  width: 20%;
+  text-align: center;
+  margin: 0 auto;
+  font-size: 1rem;
+  border-radius: 0.7rem;
+  box-shadow: 0 0 0.7rem 0.2rem #6464641a;
+  position: absolute;
+  bottom: 50%;
+}
+
+.selection {
+  background-color: #abbfb8;
+  display: flex;
+  flex-direction: column;
+
+  gap: 10px;
+  border-radius: 0.7rem;
+  box-shadow: 0 0 0.7rem 0.2rem #6464641a;
+  width: 80%;
+  margin: 0 auto;
+  padding: 2rem;
+}
+
+#play{
+  margin-top: 2rem;
+  width: 100%;
+  border-radius: 5rem;
+  box-shadow: 0 0 0.7rem 0.2rem #6464641a;
+  text-align: center;
+  background-color: #b8e893;
+}
+
+.qst-btn,
+.category,
+.select-df,
+.type{
+  display: flex;
+  gap: 10px;
+  font-size: 1rem;
+  cursor: pointer;
+}
+
+button{
+  background-color: #d3d3d3;
+  font-size: 1rem;
+  cursor: pointer;
+  border-radius: 0.3rem;
+  box-shadow: 0 0 0.7rem 0.2rem #6464641a;
+}
+
+select{
+  background-color: #d3d3d3;
+  font-size: 1rem;
+  cursor: pointer;
+  border-radius: 0.3rem;
+  padding: 0 4rem;
+  box-shadow: 0 0 0.7rem 0.2rem #6464641a;
+}
