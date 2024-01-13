@@ -3,18 +3,6 @@ import { buildUrl, /* buildPage */ } from './services/util.js'
 // import questionsPage from './pages/questions.js'
 // import resultsPage from './pages/results.js'
 
-const apiUrl = 'https://opentdb.com/api.php?amount=25'
-
-// https://opentdb.com/api.php?amount=10&category=9&difficulty=medium&type=multiple
-
-async function getQuestions(url){
-    const res = await fetch(url)
-    const data = await res.json()
-
-
-    console.log(data.result)
-}
-
 // // BUILDING LANDING PAGE
 // buildPage(landingPage)
 
