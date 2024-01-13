@@ -1,7 +1,7 @@
-import { buildUrl, buildPage } from './services/util.js'
-import landingPage from './pages/landing.js'
-import questionsPage from './pages/questions.js'
-import resultsPage from './pages/results.js'
+import { buildUrl, /* buildPage */ } from './services/util.js'
+// import landingPage from './pages/landing.js'
+// import questionsPage from './pages/questions.js'
+// import resultsPage from './pages/results.js'
 
 const apiUrl = 'https://opentdb.com/api.php?amount=25'
 
@@ -15,8 +15,8 @@ async function getQuestions(url){
     console.log(data.result)
 }
 
-// BUILDING LANDING PAGE
-buildPage(landingPage)
+// // BUILDING LANDING PAGE
+// buildPage(landingPage)
 
 const startBtn = document.getElementById('play')
 
@@ -68,12 +68,7 @@ typeBtns.forEach(btn => {
 
 startBtn.addEventListener('click', () => {
   const url = buildUrl(queryObj)
+  console.log(url)
 
-  const response = fetch(url)
-
-  console.log(response)
-
-  // FETCH QUESTION FROM API URL.
-
-  buildPage(questionsPage)
+  localStorage.setItem('url', url)
 })
