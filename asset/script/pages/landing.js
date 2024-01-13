@@ -1,18 +1,9 @@
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="asset/stye/style.css" />
-    <link rel="stylesheet" href="asset/stye/style.css" />
-    <title>quiz-app</title>
-  </head>
-  <body>
-    <!-- <div class="quiz-container">
+const landingPage = `
+    <div class="quiz-container">
       <div class="quiz">
-       <h1>Quiz</h1>
-      <img src="asset/image/Ellipse 1.svg" alt="logo" />
-      <button class="btn">Welcome!</button>
+        <h1>Quiz</h1>
+        <img src="asset/image/Ellipse 1.svg" alt="logo" />
+        <button class="btn">Welcome!</button>
       </div>
 
       <div class="selection">
@@ -51,7 +42,7 @@
       </div>
 
       <button id="play">Start quiz</button>
-    </div>   -->
-  </body>
-  <script src="asset/script/app.js" type="module"></script>
-</html>
+    </div>
+`
+
+export default landingPage

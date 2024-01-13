@@ -65,8 +65,6 @@ img {
   font-size: 1rem;
   border-radius: 0.7rem;
   box-shadow: 0 0 0.7rem 0.2rem #6464641a;
-  position: absolute;
-  bottom: 50%;
 }
 
 .selection {
@@ -116,4 +114,16 @@ select{
   border-radius: 0.3rem;
   padding: 0 4rem;
   box-shadow: 0 0 0.7rem 0.2rem #6464641a;
+}
+
+@media screen and (max-width:600px) {
+  button.btn {
+    font-size: smaller;
+    padding: 10px;
+    width: 40%;
+  }
+
+  div.qst-btn {
+    font-size: 10px;
+  }
 }
