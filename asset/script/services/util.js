@@ -10,7 +10,14 @@ const buildPage = (page) => {
     document.querySelector('body').innerHTML = page
 }
 
+const randomizeOptions = (correct_answer, incorrect_answers) => {
+    // incorrect_answers is an array
+
+    return [correct_answer, ...incorrect_answers]
+}
+
 export {
     buildUrl,
     buildPage,
+    randomizeOptions,
 }
