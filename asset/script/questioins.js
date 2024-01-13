@@ -6,4 +6,4 @@ const getQuestions = async () => {
   console.log(response)
 }
 
-// getQuestions()
+getQuestions()

@@ -1,0 +1,59 @@
+@import url('https://fonts.googleapis.com/css2?family=Lato&');
+
+* {
+  box-sizing: border-box;
+  border: none;
+  text-decoration: none;
+}
+
+body {
+  font-family: 'Lato', sans-serif;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  overflow-x: hidden;
+  margin: 0;
+}
+
+.quiz-container{
+  justify-content: space-between;
+  background-color: #fff;
+  border-radius: 0.7rem;
+  box-shadow: 0 0 0.7rem 0.2rem #6464641a;
+  width: 600px;
+  height: 90vh;
+  overflow: hidden;
+  background-color: #fff;
+  position: relative;
+  cursor: pointer;
+}
+
+.quiz {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 10px;
+  gap: 10px;
+}
+
+h1 {
+  color: #fff;
+  font-size: 2rem;
+  font-weight: 300;
+  background-color: #86948f;
+}
+
+img {
+  height: 30vh;
+  width: 30vh;
+  border-radius: 50%;
+  margin-bottom: 2rem;
+  margin: 0 auto;
+}
+
+.qst-box{
+  background-color: #bbe893;
+  color: 0;
+  border-radius: 0.7rem;
+  box-shadow: 0 0 0.7rem 0.2rem #6464641a;
+}
