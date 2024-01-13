@@ -15,15 +15,15 @@ const getQuestions = async () => {
 // getQuestions()
 
 
-// const results = [
-//   {
-//     question: '',
-//     question_num: 1,
-//     passed: false,
-//   }
-// ]
+const arrResults = [
+  // {
+  //   question: '',
+  //   question_num: 1,
+  //   passed: false,
+  // }
+]
 
-const arr_questions = [
+const arrQuestions = (await getQuestions()).results || [
   {
     category: "Entertainment: Books",
     correct_answer: "Charles Dickens",
@@ -31,18 +31,28 @@ const arr_questions = [
     incorrect_answers: ['Charles Darwin', 'Mark Twain', 'Roald Dahl'],
     question: "Who wrote &quot;A Tale of Two Cities&quot;?",
     type: "multiple",
+  },
+  {
+    category: "Entertainment: Books",
+    correct_answer: "yes, she is",
+    difficulty: "easy",
+    incorrect_answers: ['maybe', 'normally', 'no'],
+    question: "is Vanessa la hot??",
+    type: "multiple",
+  },
+  {
+    category: "Entertainment: Books",
+    correct_answer: "vanessa",
+    difficulty: "easy",
+    incorrect_answers: ['Aisha', 'Ayisha', 'none'],
+    question: "who is wah",
+    type: "multiple",
   }
 ]
 
-/* 
-<p id="question"></p>
-<ul id="options-display"></ul>
-<div id="result"></div>
-<button class="next">Next</button>
- */
-
-const displayQuestion = (question) => {
-  let answer = ''
+const displayMultipleChoiceQuestion = (question, question_num) => {
+  quizBody.innerHTML = ''
+  let answer = '' // user's selected answer
 
   const questionElement = document.createElement('p')
   const optionsDisplay = document.createElement('ul')
@@ -54,7 +64,7 @@ const displayQuestion = (question) => {
 
   const options = randomizeOptions(question.correct_answer, question.incorrect_answers)
 
-  questionElement.innerHTML = question.question
+  questionElement.innerHTML = `${question_num + 1} ) ${question.question}`
   nextBtn.innerHTML = 'Next'
 
   options.forEach((option, i) => {
@@ -62,7 +72,7 @@ const displayQuestion = (question) => {
     const radioField = document.createElement('input')
     radioField.type = 'radio'
 
-    const id = 'option-'  + i
+    const id = 'option-' + i
     radioField.id = id
     radioField.name = 'option'
 
@@ -73,7 +83,9 @@ const displayQuestion = (question) => {
 
     optionsDisplay.appendChild(label)
 
-    label.option
+    label.addEventListener('input', () => {
+      answer = option
+    })
   })
 
   quizBody.appendChild(questionElement)
@@ -81,8 +93,25 @@ const displayQuestion = (question) => {
   quizBody.appendChild(nextBtn)
 
   nextBtn.addEventListener('click', () => {
-    console.log('clicked')
+    if (question_num <= arrQuestions.length) {
+      const nextIndx = question_num + 1
+
+      const newResult = {
+        question: question.question,
+        question_num: question_num,
+        passed: answer === question.correct_answer,
+      }
+
+      arrResults.push(newResult)
+      displayMultipleChoiceQuestion(arrQuestions[nextIndx], nextIndx)
+    } else[
+      // means we've exhausted all our question.
+      // search how to navigate using the window object.
+      console.log(arrResults)
+      // got to results page and display results
+
+    ]
   })
 }
 
-displayQuestion(arr_questions[0])
+displayMultipleChoiceQuestion(arrQuestions[0], 0)

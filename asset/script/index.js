@@ -1,10 +1,4 @@
-import { buildUrl, /* buildPage */ } from './services/util.js'
-// import landingPage from './pages/landing.js'
-// import questionsPage from './pages/questions.js'
-// import resultsPage from './pages/results.js'
-
-// // BUILDING LANDING PAGE
-// buildPage(landingPage)
+import { buildUrl } from './services/util.js'
 
 const startBtn = document.getElementById('play')
 
