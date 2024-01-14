@@ -6,53 +6,46 @@ const quizBody = document.querySelector('.quiz-body')
 const url = localStorage.getItem('url')
 
 const getQuestions = async () => {
-  const response = await fetch(url).then(res => res.json())
-  console.log(response)
-
-  return response
+  try {
+    const response = await fetch(url)
+    
+    if (!response.ok) {
+      throw new Error('Failed to fetch questions')
+    }
+    
+    const data = await response.json()
+    
+    arrQuestions.push(...data.results)
+    
+    // Call displayMultipleChoiceQuestion after fetching questions
+    displayMultipleChoiceQuestion(arrQuestions[0], 0)
+  } catch (error) {
+    console.error(error)
+    // Handle error - show error message to the user or retry the request
+  }
 }
 
-// getQuestions()
-
+getQuestions()
 
 const arrResults = [
-  // {
-  //   question: '',
-  //   question_num: 1,
-  //   passed: false,
-  // }
-]
-
-const arrQuestions = (await getQuestions()).results || [
   {
-    category: "Entertainment: Books",
-    correct_answer: "Charles Dickens",
-    difficulty: "easy",
-    incorrect_answers: ['Charles Darwin', 'Mark Twain', 'Roald Dahl'],
-    question: "Who wrote &quot;A Tale of Two Cities&quot;?",
-    type: "multiple",
-  },
-  {
-    category: "Entertainment: Books",
-    correct_answer: "yes, she is",
-    difficulty: "easy",
-    incorrect_answers: ['maybe', 'normally', 'no'],
-    question: "is Vanessa la hot??",
-    type: "multiple",
-  },
-  {
-    category: "Entertainment: Books",
-    correct_answer: "vanessa",
-    difficulty: "easy",
-    incorrect_answers: ['Aisha', 'Ayisha', 'none'],
-    question: "who is wah",
-    type: "multiple",
+    question: '',
+    question_num: 0,
+    passed: false,
   }
 ]
 
+const arrQuestions = []
+
 const displayMultipleChoiceQuestion = (question, question_num) => {
+  if (!question || !question.correct_answer) {
+    // Handle the case where the question is undefined or invalid
+    console.error('Invalid question:', question)
+    return
+  }
+  
   quizBody.innerHTML = ''
-  let answer = '' // user's selected answer
+  let answer = '' // User's selected answer
 
   const questionElement = document.createElement('p')
   const optionsDisplay = document.createElement('ul')
@@ -64,8 +57,8 @@ const displayMultipleChoiceQuestion = (question, question_num) => {
 
   const options = randomizeOptions(question.correct_answer, question.incorrect_answers)
 
-  questionElement.innerHTML = `${question_num + 1} ) ${question.question}`
-  nextBtn.innerHTML = 'Next'
+  questionElement.textContent = `${question_num + 1} ) ${question.question}`
+  nextBtn.textContent = 'Next'
 
   options.forEach((option, i) => {
     const label = document.createElement('label')
@@ -93,24 +86,29 @@ const displayMultipleChoiceQuestion = (question, question_num) => {
   quizBody.appendChild(nextBtn)
 
   nextBtn.addEventListener('click', () => {
-    if (question_num <= arrQuestions.length) {
-      const nextIndx = question_num + 1
+    if (question_num < arrQuestions.length - 1) {
+      const nextIndex = question_num + 1
 
       const newResult = {
         question: question.question,
-        question_num: question_num,
+        question_num: nextIndex,
         passed: answer === question.correct_answer,
       }
 
       arrResults.push(newResult)
-      displayMultipleChoiceQuestion(arrQuestions[nextIndx], nextIndx)
-    } else[
-      // means we've exhausted all our question.
-      // search how to navigate using the window object.
+      displayMultipleChoiceQuestion(arrQuestions[nextIndex], nextIndex)
+    } else {
       console.log(arrResults)
-      // got to results page and display results
 
-    ]
+      // Calculate the total correct answers
+      const correctAnswers = arrResults.filter(result => result.passed).length
+
+      // Calculate the percentage
+      const percentage = (correctAnswers / arrQuestions.length) * 100
+
+      // Go to results page and display results
+      window.location.href = '/congratulation.html?correct=' + correctAnswers + '&percentage=' + percentage
+    }
   })
 }
 
