@@ -1,4 +1,5 @@
-@import url('https://fonts.googleapis.com/css2?family=Lato&');
+@import url("https://fonts.googleapis.com/css2?family=Lato&");
+@import "https://fonts.googleapis.com/css2?family=Sriracha&display=swap";
 
 * {
   box-sizing: border-box;
@@ -6,124 +7,135 @@
   text-decoration: none;
 }
 
+:root {
+  --Background: #f5f5f5;
+  --Header-Text: #4a90e2;
+  --correct-answer: #28a745;
+  --incorrect: #dc3545;
+  --buttons-states: blue;
+}
+
 body {
-  font-family: 'Lato', sans-serif;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  height: 100vh;
-  overflow-x: hidden;
-  margin: 0;
+  font-family: "Lato", sans-serif;
 }
 
-.quiz-container {
-  justify-content: space-between;
-  background-color: #fff;
-  border-radius: 0.7rem;
-  box-shadow: 0 0 0.7rem 0.2rem #6464641a;
-  width: 600px;
-  height: 90vh;
-  overflow: hidden;
-  background-color: #86948F;
-  position: relative;
+button {
+  width: 100%;
+  padding: 10px;
+  font-size: 1rem;
+  background: var(--Header-Text);
+  border-radius: 5px;
+  color: white;
   cursor: pointer;
+  border: none;
+  transition: background-color 0.3s ease;
 }
 
-.quiz {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  margin-bottom: 10px;
-  gap: 10px;
+button:hover {
+  color: var(--Background);
+  background-color: var(--buttons-states);
 }
 
 h1 {
-  color: #fff;
-  font-size: 3rem;
-  font-weight: 300;
+  font-size: 2rem;
+  font-family: Sriracha, cursive;
 }
 
-h4{
-  background-color: #B8E893;
-  border-radius: 0.7rem;
-  box-shadow: 0 0 0.7rem 0.2rem #6464641a;
+.header {
+  display: flex;
+  background-color: var(--Background);
+  justify-content: space-between;
+  align-items: center;
+}
+
+.logo {
+  padding: 10px 1rem;
+  color: var(--Header-Text);
+}
+
+/* General Styles for Hero Section */
+.hero-section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
   text-align: center;
+  background-color: var(--Background);
+  gap: 2rem;
 }
 
-img {
-  border-radius: 0.7rem;
-  box-shadow: 0 0 0.7rem 0.2rem #6464641a;
-  margin-bottom: 2rem;
+
+.hero-section .btn {
+  padding: 10px 20px;
+  font-size: 1.2rem;
+  transition: background-color 0.3s ease;
 }
 
-.btn {
-  background-color: #B8E893;
-  margin: 0 auto;
-  width: 20%;
-  text-align: center;
-  margin: 0 auto;
-  font-size: 1rem;
-  border-radius: 0.7rem;
-  box-shadow: 0 0 0.7rem 0.2rem #6464641a;
+.hero-section h4 {
+  font-size: 1.1rem;
+  color: var(--Header-Text);
+  margin-top: 20px;
+}
+
+/* Responsive Styles */
+@media (min-width: 768px) {
+
+  .hero-section h1 {
+    font-size: 2.5rem;
+  }
+
+  .hero-section h4 {
+    font-size: 1.3rem;
+  }
+}
+
+
+.quiz-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px;
+  background-color: #fff;
+  border-radius: 10px;
+  max-width: 600px;
+  margin: 20px auto;
+  gap: 20px;
 }
 
 .selection {
-  background-color: #abbfb8;
+  width: 100%;
   display: flex;
   flex-direction: column;
-
-  gap: 10px;
-  border-radius: 0.7rem;
-  box-shadow: 0 0 0.7rem 0.2rem #6464641a;
-  width: 80%;
-  margin: 0 auto;
-  padding: 2rem;
-}
-
-#play{
-  margin-top: 2rem;
-  width: 100%;
-  border-radius: 5rem;
-  box-shadow: 0 0 0.7rem 0.2rem #6464641a;
-  text-align: center;
-  background-color: #b8e893;
+  gap: 20px;
 }
 
 .qst-btn,
 .category,
 .select-df,
-.type{
+.type {
   display: flex;
+  flex-direction: column;
   gap: 10px;
-  font-size: 1rem;
-  cursor: pointer;
 }
 
-button{
-  background-color: #d3d3d3;
+label {
   font-size: 1rem;
-  cursor: pointer;
-  border-radius: 0.3rem;
-  box-shadow: 0 0 0.7rem 0.2rem #6464641a;
+  color: black;
 }
 
-select{
-  background-color: #d3d3d3;
+select {
+  padding: 10px;
   font-size: 1rem;
-  cursor: pointer;
-  border-radius: 0.3rem;
-  padding: 0 4rem;
-  box-shadow: 0 0 0.7rem 0.2rem #6464641a;
+  border-radius: 5px;
+  border: 1px solid #ccc;
 }
 
-@media screen and (max-width:600px) {
-  button.btn {
-    font-size: smaller;
-    padding: 10px;
-    width: 40%;
-  }
-
-  div.qst-btn {
-    font-size: 10px;
-  }
+footer {
+  text-align: center;
+  background-color: var(--Header-Text);
+  color: var(--Background);
+  padding: 10px 0;
+  position: fixed;
+  bottom: 0;
+  width: 100%;
 }
